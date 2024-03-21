@@ -1,0 +1,65 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.body{
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 8rem;
+    margin-right: 3rem;
+}
+.container{
+    display: flex;
+    width: 100%;
+}
+
+h1{
+    font-family: "Big Shoulders Display", sans-serif;
+    color: hsl(0, 0%, 95%);
+    margin-bottom: 30px;
+    
+}
+.svg{
+    margin-bottom: 30px;
+}
+.wrapper{
+    border-radius: 5px;
+    gap:0px;
+    padding-block: 3rem;
+    padding-inline: 2rem;
+    
+}
+p{
+    font-family: "Lexend Deca", sans-serif;
+    color: hsla(0, 0%, 100%, 0.75);
+    margin-bottom: 200px;
+    min-width: 60%;
+}
+button{
+    border-radius: 20px;
+    border: none;
+    box-shadow: none;
+    height: 45px;
+    max-width: 150px;
+    position: relative;
+    left:10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+@media(max-width:900px){
+    .container{
+        margin-inline: 0.5rem;
+    }
+}
+@media(max-width:850px){
+    .container{
+        flex-direction: column;
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
+    }
+}
