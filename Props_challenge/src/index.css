@@ -3,17 +3,25 @@
     padding: 0px;
 }
 .body{
-
+    
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 8rem;
-    margin-right: 3rem;
+    align-items: center;
+    width: 100%;
+    
+    
+    
+
+    
 }
 .container{
     display: flex;
-    width: 100%;
+    margin-left:2rem;
+    margin-right: 2rem;
+    
+    
 }
 
 h1{
@@ -52,14 +60,22 @@ button{
 
 
 @media(max-width:900px){
-    .container{
-        margin-inline: 0.5rem;
+    body{
+       padding-left: 0;
+       padding-right: 0;
     }
 }
 @media(max-width:850px){
     .container{
+        margin-top:2rem;
         flex-direction: column;
-        margin-left: 0.2rem;
-        margin-right: 0.2rem;
+    }
+}
+
+
+@media(max-width:500px){
+    .container{
+       margin-right: 6rem;
+        
     }
 }
