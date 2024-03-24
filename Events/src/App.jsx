@@ -3,32 +3,57 @@ import { useState } from "react";
 import "./styles.css";
 
 function App() {
-  const [style,updateStyle] = useState("white");
-  const [name,updateName] = useState("");
-  const [heading,updateHeading] = useState("");
-  function handleClick(){
-    updateHeading(name);
-  }
-function Event(){ 
-  updateStyle("black");
-}
-function Event2(){
-  updateStyle("white");
-}
-function handleChange(event){
-  updateName(event.target.value);
+  const[contact,setContact] = useState({
+    fName: "",
+    lName: "",
+    email: ""
+  })
   
-}
+  function handleChange(event){
+    const {value:newValue,name} = event.target;
+    setContact((prevValue)=>{
+      if(name==="fName"){
+        return{
+          fName: newValue,
+          lName:prevValue.lName,
+          email:prevValue.email
+        }
+      }
+      else if(name==="lName"){
+        return{
+          fName: prevValue.fName,
+          lName: newValue,
+          email:prevValue.email
+
+        } 
+      }
+      else if(name==="email"){
+        return{
+          fName:prevValue.fName,
+          lName:prevValue.lName,
+          email: newValue
+          
+
+        }
+        
+      }
+    })
+  }
+  
   return (
     <div className="container">
-      <h1>Hello {heading}</h1>
-      <input type="text" placeholder="What's your name?" onChange={handleChange}/>
-      <button style={{
-        backgroundColor: style
-      }
+      <h1>Hello {contact.fName} {contact.lName}</h1>
+      <p>{contact.email}</p>
+      <form>
+      <input name="fName" type="text" placeholder="First Name" onChange={handleChange}/>
+      <input name ="lName" type="text" placeholder="Last Name" onChange={handleChange} />
+      <input name ="email" type="text" placeholder="Email" onChange={handleChange} />
 
-      } onMouseOver={Event} onMouseOut={Event2} onClick={handleClick} >Submit</button>
+      <button>Submit</button>
+      </form>
     </div>
+      
+      
   );
 }
 
