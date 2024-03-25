@@ -12,30 +12,34 @@ function App() {
   function handleChange(event){
     const {value:newValue,name} = event.target;
     setContact((prevValue)=>{
-      if(name==="fName"){
-        return{
-          fName: newValue,
-          lName:prevValue.lName,
-          email:prevValue.email
-        }
-      }
-      else if(name==="lName"){
-        return{
-          fName: prevValue.fName,
-          lName: newValue,
-          email:prevValue.email
+      // if(name==="fName"){
+      //   return{
+      //     fName: newValue,
+      //     lName:prevValue.lName,
+      //     email:prevValue.email
+      //   }
+      // }
+      // else if(name==="lName"){
+      //   return{
+      //     fName: prevValue.fName,
+      //     lName: newValue,
+      //     email:prevValue.email
 
-        } 
-      }
-      else if(name==="email"){
-        return{
-          fName:prevValue.fName,
-          lName:prevValue.lName,
-          email: newValue
+      //   } 
+      // }
+      // else if(name==="email"){
+      //   return{
+      //     fName:prevValue.fName,
+      //     lName:prevValue.lName,
+      //     email: newValue
           
 
-        }
+      //   }
         
+      // }
+      return{
+        ...prevValue,
+        [name] : newValue
       }
     })
   }
