@@ -1,18 +1,26 @@
 import React, { useState } from "react";
 import "./styles.css"
+import Item from "./Item";
 
 function App() {
   const [inputValue,handleInput] = useState("");
   
-const [tasks,addTask] = useState([])
+const [tasks,updateTasks] = useState([])
 function handleClick(){
-  addTask((prevTasks)=>{
+  updateTasks((prevTasks)=>{
     return[ ...prevTasks,inputValue]
   });
   handleInput("");
   
 } 
+function deleteItem(id){
+updateTasks((prevTasks)=>{
+    let newTasks = [...prevTasks];
+    newTasks.splice(id,1);
+    return newTasks;
+})
 
+}
 
 function onChange(event){
   let value = event.target.value;
@@ -34,7 +42,7 @@ function onChange(event){
         <ul>
           {tasks.map((item, index)=>{
             return(
-            <li key={index}>{item}</li>
+            <Item key = {index} id ={index} text = {item} DeleteTask={deleteItem}/>
           )
           })}
         </ul>
