@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./styles.css"
 import Item from "./Item";
 import { createContext } from "react";
 function App() {
-  const [inputValue,handleInput] = useState("");
+  const inputValue = useRef("");
   
 const [tasks,updateTasks] = useState([])
 function handleClick(){
@@ -22,19 +22,15 @@ updateTasks((prevTasks)=>{
 
 }
 
-function onChange(event){
-  let value = event.target.value;
-  handleInput(value);
-  
-}
 const taskContext = createContext(tasks);
   return (
+    <taskContext.Provider>
     <div className="container">
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input type="text" onChange={onChange} value={inputValue}/>
+        <input type="text" ref={inputValue}/>
         <button onClick={handleClick}>
           <span>Add</span>
         </button>
@@ -49,6 +45,7 @@ const taskContext = createContext(tasks);
         </ul>
       </div>
     </div>
+    </taskContext.Provider>
   );
 }
 

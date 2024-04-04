@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 import "./styles.css"
-
+import { InputValue } from "./contextApi";
 function App() {
   const [inputValue,updateValue] = useState({
     title: "",
@@ -41,9 +41,11 @@ function App() {
       return updatedTasks;
     })
   }
-
+  
+ 
   return (
     <div>
+    <InputValue.Provider value={inputValue}>
       <Header />
       <CreateArea handleChange={handleChange} addItem={addItem} title={inputValue.title} content={inputValue.content} />
       {tasks.map((Item,index)=>{
@@ -58,8 +60,12 @@ function App() {
       })}
        
       <Footer />
+      </InputValue.Provider>
     </div>
+      
   );
+  
 }
 
 export default App;
+
