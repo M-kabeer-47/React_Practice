@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css"
 import Item from "./Item";
-
+import { createContext } from "react";
 function App() {
   const [inputValue,handleInput] = useState("");
   
@@ -27,6 +27,7 @@ function onChange(event){
   handleInput(value);
   
 }
+const taskContext = createContext(tasks);
   return (
     <div className="container">
       <div className="heading">
