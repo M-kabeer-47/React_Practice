@@ -1,8 +1,9 @@
 import { useContext } from "react"
 import "./index.css"
-import {Notes} from "./contextAPI.jsx"
+import { notesContext } from "./context"
+
 export default function Note(props){
-    const {deleteItem} = useContext(Notes)
+    const {removeNote} = useContext(notesContext)
     return(
         <>
         
@@ -10,7 +11,7 @@ export default function Note(props){
             <h2>{props.title}</h2>
             <p>{props.content}</p>
             <button onClick={()=>{
-                deleteItem(props.id)
+                removeNote(props.id)
             }}>DELETE</button>
         </div>
         

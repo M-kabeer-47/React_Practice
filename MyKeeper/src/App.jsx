@@ -2,18 +2,14 @@ import "./index.css"
 import Header from "./header.jsx"
 import CreateCard from "./createCard.jsx"
 import Note from "./Note.jsx"
+import { notesContext } from "./context.jsx"
 import { useState } from "react"
-import {Notes} from "./contextAPI.jsx"
 export default function App(){
-  const [notes,addNote] = useState({
-    Notes: [],
-    addItem: Add,
-    deleteItem: removeNote
-  });
+ 
    const [note,updateNote] =useState({
     title : "",
     content: ""});
-    
+    const [notes,updateNotes] = useState([])
     function onChange(event){
         const {name,value} = event.target;
         updateNote((prevValue)=>{
@@ -32,53 +28,60 @@ export default function App(){
     });
 }
 function Add(){
-    addNote((prevValue)=>{
-      const updatedNotes = [...prevValue.Notes, note];
-        return{
-          Notes:updatedNotes,
-          addItem: Add,
-          deleteItem: removeNote
-        }
+    updateNotes((prevValue)=>{
+      const updatedNotes = [...prevValue, note];
+        updateNote({
+          title: "",
+          content: ""
+        })
+        return updatedNotes;
     })
 }
 function removeNote(id){
-  addNote((prevValue)=>{
-    let updatedNotes = [prevValue.Notes];
+  updateNotes((prevValue)=>{
+    let updatedNotes = [...prevValue];
     updatedNotes.splice(id,1);
-    return {
-      Notes: updatedNotes,
-      addItem: Add,
-      deleteItem: removeNote
-    }
+    return updatedNotes;
+      
+    
   })
 }
 function displayNotes(note,index){
   return(
     <>
+    
     <Note
     id = {index}
     key= {index}
     title = {note.title}
     content = {note.content}
-    removeNote = {removeNote}
+    
      />
+     
     </>
   )
 }
   return(
     <>
-    <Notes.Provider value={notes}>
+    
 
     
 <Header />
+<notesContext.Provider value={{
+  notes: notes,
+  addNote: Add,
+  removeNote: removeNote,
+  note:note
+}}>
 <CreateCard 
 onChange = {onChange}
-Add={Add}
+
 />
 <div className="notes">
-{notes.Notes.map((displayNotes))}
+{notes.map((displayNotes))}
 </div>
-</Notes.Provider>
+
+</notesContext.Provider>
   </>  
   )
   

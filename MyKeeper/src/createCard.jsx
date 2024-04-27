@@ -1,14 +1,15 @@
 import { useContext, useState } from "react"
-import {Notes} from "./contextAPI.jsx"
+import { notesContext } from "./context.jsx"
 export default function CreateCard(props){
-    const {addItem}= useContext(Notes)
+    const {addNote,note} = useContext(notesContext)
+    
     return(
         <>
         <div className="container">
         <div className="card">
-            <input name="title" type="text" placeholder="Title" onChange={props.onChange} />
-            <textarea name="content" id="" rows="3" placeholder="Take a note.." onChange={props.onChange}></textarea>
-            <button onClick={addItem}>Add</button>
+            <input name="title" type="text" placeholder="Title" onChange={props.onChange} value={note.title} />
+            <textarea name="content" id="" rows="3" placeholder="Take a note.." onChange={props.onChange} value={note.content}></textarea>
+            <button onClick={addNote}>Add</button>
         </div>
         </div>
         </>
