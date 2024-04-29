@@ -1,37 +1,38 @@
-import { useReducer } from "react"
-
-
+import { useReducer, useState } from "react"
+const Actions = {
+  toAdd: "add"
+}
 export default function App(){
   function reducer(state,action){
     switch(action.type){
-      case "increment":
-        return{
-          count: state.count+1
-        }
-        case "decrement":
-        return{
-          count: state.count-1
-        }
-        default:
-          return state;
-          
-        
+      case Actions.toAdd:
+        return [...state, name]
     }
+  }
+  const [name,updateName]= useState("")
+  const[state,dispatch] = useReducer(reducer,[])
+  function changeName(event){
+      updateName(event.target.value)
+      
+  }
+  const [Bool,updatebool] = useState(false)
+  function showName(){
+    updatebool(!Bool)
+  }
+    function handleSubmit(e){
+    e.preventDefault();
+    // dispatch({type: Actions.toAdd})
+    showName();
+    showName(); 
     
-    }
-  const [state,dispatch] = useReducer(reducer,{count: 0})
- 
-return(
+  }
+  return(
     <>
-    <div className="container">
-      <button onClick={()=>{
-        dispatch({type:"increment"})
-      }}>+</button>
-      <h2>{state.count}</h2>
-      <button onClick={()=>{
-        dispatch({type:"decrement"})
-      }}>-</button>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input type="text" onChange={changeName} value={name}></input>
+      {Bool ? <h2>{name}</h2> : null}
+    </form>
+
     </>
   )
 }
