@@ -6,7 +6,7 @@ async function Weather() {
     const karachiWeather = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve("37 Deg");
-      }, 1000);
+      }, 2000);
     });
   
     // Wait for Karachi weather to resolve (1 second delay)
