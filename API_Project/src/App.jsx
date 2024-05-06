@@ -4,58 +4,58 @@ const movies = [
   "The Shawshank Redemption",
   "The Godfather",
   "The Dark Knight",
-  "Schindler's List",
-  "Pulp Fiction",
-  "The Lord of the Rings: The Return of the King",
+  "Uncharted",
+  "Ambulance",
+  "Morbius",
   "The Good, the Bad and the Ugly",
   "Fight Club",
   "Forrest Gump",
   "Inception",
-  "The Lord of the Rings: The Fellowship of the Ring",
-  "Star Wars: Episode V - The Empire Strikes Back",
+  "Men in Black",
+  "Star Wars",
   "The Lord of the Rings: The Two Towers",
   "The Matrix",
   "The Batman",
-  "One Flew Over the Cuckoo's Nest",
-  "Seven Samurai",
+  "Bullet train",
+  "Dhol",
   "Se7en",
   "Rampage",
   "The Silence of the Lambs",
-  "It's a Wonderful Life",
+  "tomorrow war",
   "Joker",
   "The Usual Suspects",
   "Karate Kid",
   "King Kong",
-  "Saving Private Ryan",
-  "The Green Mile",
+  "Black Adam",
+  "Smile",
   "Interstellar",
-  "American History X",
+  "Gray man",
   "John Wick 4",
   "The Pianist",
   "The Departed",
   "Gladiator",
   "Whiplash",
   "The Lion King",
-  "The Prestige",
+  "Nope",
   "The Intouchables",
   "Twilight",
   "Memento",
   "Apocalypse Now",
-  "Terminator 2: Judgment Day",
+  "Creed 3",
   "Spiderman no way home",
-  "Raiders of the Lost Ark",
+  "65",
   "Avengers Endgame",
   "The Terminator",
   "Iron man",
   "The Great Dictator",
-  "Cinema Paradiso",
+  "Plane",
   "The Dark Knight Rises",
   "Incredible Hulk",
-  "Alien",
+  "Spencer",
   "Thor the dark world",
-  "Aliens",
-  "Paths of Glory",
-  "The Apartment",
+  "X-men",
+  "Fall",
+  "Final Destination",
   "Witness for the Prosecution",
   "12 strong",
   "Golmaal",
@@ -63,23 +63,23 @@ const movies = [
   "Shang chi",
   "Doctor Strange",
   "Reservoir Dogs",
-  "Requiem for a Dream",
+  "Renfield",
   "Braveheart",
   "Toy Story",
-  "To Kill a Mockingbird",
+  "Sisu",
   "A Clockwork Orange",
   "Lawrence of Arabia",
   "Double Indemnity",
-  "Eternal Sunshine of the Spotless Mind",
-  "Full Metal Jacket",
+  "Faxt X",
+  "Dead reckoning",
   "The Sting",
   "Transformers",
-  "Singin' in the Rain",
+  "Equalizer",
   "All About Eve",
-  "Bicycle Thieves",
+  "F9",
   "Scarface",
   "Escape Plan 2",
-  "The Treasure of the Sierra Madre",
+  "Blue beetle",
   "Godzilla",
   "On the Waterfront",
   "The Third Man",
@@ -88,22 +88,39 @@ const movies = [
   "Trainspotting",
   "It",
   "Conjuring",
-  "My Neighbor Totoro",
+  "The marvels",
   "Spiderman 2",
   "Home alone",
-  "Some Like It Hot",
+  "Saw X",
   "Dangal",
   "Drive",
   "Fan",
   "John Wick 3",
-  "Metropolis",
+  "Batman v superman",
   "American psycho",
   "Inglourious Basterds",
   "The Apartment",
   "The Elephant Man",
   "Sultan",
   "The Night of the Hunter",
-  "The Graduate"
+  "The Graduate",
+  "Flash",
+  "Aquaman",
+  "World war z",
+  "Justice league",
+  "Superman",
+  "Tokyo Drift",
+  "Animal",
+  "12th fail",
+  "Race 2",
+  "Top gun maverick",
+  "Oppenheimer",
+  "Ben 10",
+  "Tenet",
+  "Fall guy",
+  "Imaginary",
+  "Madame Web",
+  "Migration"
 ];
 
 
@@ -196,6 +213,7 @@ export default function App(){
       
     }
   }
+  let style  = {};
   async function generateMovie(){
     for(let i=0;i<3;i++){
       let {movieData,imageData} =  (await fetchData(selectMovie()))
@@ -230,6 +248,10 @@ export default function App(){
   }
 }
   async function replaceMovies(){
+    style = {
+      paddingTop: "0px"
+    }
+
     let newMovies= []
     for(let i = 0;i<3;i++){
       await generateMovie().then((value)=>{
@@ -248,7 +270,8 @@ export default function App(){
 </div>
 
 
-  <div className="section">
+  <div className="section" style={{paddingTop: toggle && '0px'}}>
+  {!toggle && <button className="generate top effect" onClick={addToList}>Generate</button>}
   <div className="movies">
   {moviesList.map((item,index)=>{
     return <MovieCard 
@@ -263,7 +286,7 @@ export default function App(){
     />
   })}
   </div>
-  {!toggle ? <button className="generate" onClick={addToList}>Generate</button>: <button className="generate toggle" onClick ={replaceMovies}>Toggle</button>}
+ {toggle && <button className="generate toggle effect" onClick ={replaceMovies}>Toggle</button>}
 
   </div>
  

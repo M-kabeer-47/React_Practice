@@ -1,8 +1,16 @@
 export default function MovieCard(props){
-    function showGenre(genre){
+    function displaygenre(name){
         return (
-            <button>{genre.name}</button>
+            <button className="genreButtons">{name}</button>
         )
+    }
+    function showGenre(genre){
+        let genres = []
+        for(let i =0;i<Math.min(3,genre.length);i++){
+            let name = genre[i].name
+            genres.push(displaygenre(name))
+        }
+        return genres;
     }
     const imageURL = props.imageURL;
 
@@ -13,7 +21,7 @@ export default function MovieCard(props){
             </div>
             <h1 className="title">{props.title}</h1>
             <div className="genres">
-                {props.genres.map(showGenre)}
+                {showGenre(props.genres)}
             </div>
             <div className="details">
                 <h2>Company: <span>{props.company}</span></h2>
