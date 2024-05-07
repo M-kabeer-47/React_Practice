@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 export default function Profiles() {
     const profiles = [1, 2, 3, 4, 5];
@@ -9,9 +9,9 @@ export default function Profiles() {
             gap: "50px"
         }}>
             {profiles.map((profile) => (
-                <Link key={profile} to={`/profiles/${profile}`}>
+                <NavLink key={profile} to={`/profiles/${profile}`}>
                     Profile {profile}
-                </Link>
+                </NavLink>
             ))}
             <Outlet />
         </div>
