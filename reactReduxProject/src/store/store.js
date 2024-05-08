@@ -1,7 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit"
-import counter from "./states/counter"
+import tasks from "./toDos.js"
 export const store = configureStore({
-    reducer:{
-        counter: counter
+    reducer: {
+        toDos: tasks
     }
 })
