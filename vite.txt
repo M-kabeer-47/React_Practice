@@ -1,2 +1,3 @@
 npm create vite@latest my-react-app --template react
-npm install react-router-dom localforage match-sorter sort-by
+npm install react-router-dom localforage match-sorter sort-by 
+npm i axios @reduxjs/toolkit
