@@ -1,20 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit"
+// toDos.js
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    value: 0
-}
+  taskList: []
+};
 
-const counterSlice = createSlice({
-    name: "counter",
-    initialState,
-    reducers: {
-        increment: (state)=>{
-            state.value+=1;
-        },
-        decrement: (state)=>{
-            state.value-=1;
-        }
-    }
-})
-export const {increment,decrement} = counterSlice.actions;
-export default counterSlice.reducer
+const taskSlice = createSlice({
+  name: "tasks",
+  initialState,
+  reducers: {
+    add: (state, action) => {
+      state.taskList.push(action.payload);
+    },
+    // You can add other reducers here
+  }
+});
+
+export const { add } = taskSlice.actions;
+export default taskSlice.reducer;
