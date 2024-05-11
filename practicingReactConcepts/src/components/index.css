@@ -1,3 +1,80 @@
+
+.contact-form {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  border: 3px solid black;
+  max-width: 600px;
+  margin-top:40px;
+  margin-left:70px;
+  min-height: 500px;
+  margin-right: 60px;
+  
+}
+
+.contact-form label {
+  color: black;
+}
+
+.contact-form .heading {
+  font-size: 24px;
+  color: black;
+  ;
+  margin-bottom: 12px;
+  font-weight: bold;
+  display: block;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-bottom: 10px;
+}
+
+.contact-form input{
+  height: 40px;
+}
+textarea {
+  resize: none;
+  height: 80px;
+  max-width: 400px;
+  
+}
+
+
+.contact-form input, .contact-form textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px #4A9DEC;
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-form button[type="submit"] {
+  background-color: #4A9DEC;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contact-form button[type="submit"]:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,6 +88,24 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.input {
+  border: 2px solid gray;
+  width: 15em;
+  height: 2.5em;
+  padding-left: 0.8em;
+  outline: none;
+  overflow: hidden;
+  /* background-color: #F3F3F3; */
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+
+.input:hover,
+.input:focus {
+  border: 2px solid #4A9DEC;
+  box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+  background-color: white;
 }
 
 *{
@@ -36,7 +131,8 @@ h2{
   justify-content: space-between;
   padding-top: 15px;
   padding-inline: 20px;
-  background-color: #01314C;
+  background-color: #01314C
+  ;
   align-items: center;
   padding-bottom: 15px;
 }
@@ -47,7 +143,7 @@ h2{
   /* border: 5px solid black; */
 }
 input{
-  width: 380px;
+  /* width: 380px; */
   max-width: 380px;
   height: 30px;
   box-sizing: border-box;
@@ -58,7 +154,7 @@ input{
 input:focus{
   outline: none;
 }
-.title{
+.Title{
   margin-top:30px;
   display: flex;
   flex-direction: column;
@@ -69,14 +165,16 @@ input:focus{
   /* border: 3px solid orange;   */
   margin-inline: 30px;
 }
+
 .main{
   border-radius: 10px;
+  padding-top: 20px;
   margin-top: 50px  ;
   display: flex;
   flex-direction: column;
   border: 3px solid  #9DBFE1;
   margin-inline: 30px;
-  padding-top:10px;
+  /* padding-top:10px;   */
   max-width: 100%;
   min-height: 200px;
 }
@@ -93,14 +191,23 @@ input:focus{
   padding-right: 50px;
   
 }
+.body{
+  
+  
+}
+.contact-form input{
+  max-width: 400px;
+}
 .userInputs{
   display: flex;
   flex-direction: row;
   gap:100px;
+  margin-bottom: 10px;
 }
 .inputs{
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap:8px;
 
 }
@@ -177,7 +284,93 @@ button:focus-visible {
   margin-top: 25px;
   flex-direction: row;
   font-size: 40px;
+  margin-bottom: 20px;
   justify-content: center;
+  
+}
+.main2{
+  display: grid;
+  padding-top: 0px;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* padding-left: 20px; */
+  margin-top: 0px;
+  min-height: 70px;
+  margin-bottom: 20px;
+  /* gap:30px; */
+  border: 3px solid  #9DBFE1;
+  border-radius: 10px;
+  max-width: 100%;
+  margin-inline: 10px;
+  
+}
+.bookprops{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  
+}
+.buttons{
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+h3{
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  height: 40px;
+}
+.info{
+  grid-column: span 4;
+  /* border: 3px solid black; */
+  max-height: 40px;
+  margin-bottom: 0px;
+  /* margin-top: 0px; */
+}
+.buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* align-items: center; */
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
+  padding-block: 10px;
+  
+}
+
+
+.empty{
+  border-right: 0px;
+}
+
+
+
+h3{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-height: fit-content;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: center;
+  
+}
+.aboutUs{
+  margin-top: 100px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.aboutUs p{
+  max-width: 800px;
+  line-height: 35px;
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -191,9 +384,21 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.Main{
+  border: 3px solid #01314C
+}
+.buttons button{
+  max-width: 150px; 
+  background-color: #f92e42;
+  color: white;
+}
 .hamburger{
   font-size: 25px;
   color: white;
+}
+.search{
+  width: 500px;
+  max-width: 500px;
 }
 
 @media(max-width:1200px){
@@ -217,6 +422,7 @@ button:focus-visible {
   }
   
 }
+
 
 @media(max-width: 900px){
   
@@ -242,17 +448,18 @@ button:focus-visible {
     padding-inline: 20px;
     /* border: 5px solid white; */
   }
-  .search{
-    max-width: 400px;
-    width: 100%;
-  }
+  
   .links{
     display: flex;
     flex-direction: column;
     margin-bottom: 50px;
   }
   
-  
+  .search{
+    /* width: 300px; */
+    width: 100%;
+    max-width: 300px;
+  }
     
 }
 @media(max-width: 700px){
@@ -266,6 +473,9 @@ button:focus-visible {
   }
 }
 @media(max-width: 500px){
+  .Main{
+    padding-left: 0px;
+  }
   .addBook {
     display: grid;
     grid-template-rows: repeat(2, 1fr); /* Define four rows each with 1fr height */
@@ -291,19 +501,44 @@ button:focus-visible {
     .name {
       grid-row: 1; /* Place .name in the first row */
       padding-left: 5px;
+      
     }
     
     .price {
       grid-row: 2;
       padding-left: 14px;
+      
        /* Place .price in the second row */
     }
     
     .author {
+      
       grid-row: 3; /* Place .author in the third row */
     }
   .addButton{
     grid-row: 2;
   }
+  .book p{
+    font-size: 12px;
+  }
   
+  h3{
+    font-size: 16px;
+  }
+  .buttons button{
+    height: 20px;
+    max-width: 50px;
+  }
+  
+  
+}
+@media(max-width: 330px){
+  .Title{
+    
+    max-width: 100%;
+    margin-inline: 0px;
+    margin-left: 15px;
+    margin-right: 15px;
+    /* border: 3px solid black; */
+  }
 }
